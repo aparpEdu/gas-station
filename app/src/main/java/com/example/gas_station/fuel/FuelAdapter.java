@@ -1,7 +1,6 @@
 package com.example.gas_station.fuel;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +17,7 @@ import java.util.List;
 
 public class FuelAdapter extends RecyclerView.Adapter<FuelViewHolder> implements FuelFragmentListener{
 
-    private List<Fuel> fuel;
-    private Context context;
+    private final List<Fuel> fuel;
 
     public FuelAdapter(List<Fuel> fuel) {
         this.fuel = fuel;
@@ -28,7 +26,7 @@ public class FuelAdapter extends RecyclerView.Adapter<FuelViewHolder> implements
     @NonNull
     @Override
     public FuelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context = parent.getContext();
+        Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View gasStationView = inflater.inflate(R.layout.fuel, parent, false);
